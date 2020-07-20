@@ -1,0 +1,95 @@
+<svg id="background">
+  <svg id="arcs">
+    <!-- CALORIES ARC -->
+    <svg class="arc-container" x="0" y="0" width="100%" height="100%" id="calories" >
+      <arc class="arc arc-bg" start-angle="2"   sweep-angle="26" />
+      <arc class="arc arc-bg" start-angle="32"  sweep-angle="26" />
+      <arc class="arc arc-bg" start-angle="62"  sweep-angle="26" />
+      <arc class="arc arc-bg" start-angle="92"  sweep-angle="26" />
+      <arc class="arc arc-bg" start-angle="122" sweep-angle="26" />
+      <arc class="arc arc-bg" start-angle="152" sweep-angle="26" />
+
+      <arc id="arc-calories-1" class="arc arc-white" start-angle="2"   sweep-angle="26" />
+      <arc id="arc-calories-2" class="arc arc-green-light" start-angle="32"  sweep-angle="26" />
+      <arc id="arc-calories-3" class="arc arc-green" start-angle="62"  sweep-angle="26" />
+      <arc id="arc-calories-4" class="arc arc-green" start-angle="92"  sweep-angle="26" />
+      <arc id="arc-calories-5" class="arc arc-green-red" start-angle="122" sweep-angle="26" />
+      <arc id="arc-calories-6" class="arc arc-red" start-angle="152" sweep-angle="26" />
+      
+      <text id="calories-text" x="100%-5" y="20" />
+    </svg>
+
+    <!-- BATTERY ARC -->
+    <svg class="arc-container" x="0" y="0" width="100%" height="100%" id="battery" >
+      <arc class="arc arc-bg" start-angle="182" sweep-angle="26" />
+      <arc class="arc arc-bg" start-angle="212" sweep-angle="26" />
+      <arc class="arc arc-bg" start-angle="242" sweep-angle="26" />
+      <arc class="arc arc-bg" start-angle="272" sweep-angle="26" />
+      <arc class="arc arc-bg" start-angle="302" sweep-angle="26" />
+      <arc class="arc arc-bg" start-angle="332" sweep-angle="26" />
+
+      <arc id="arc-battery-1" class="arc arc-blue" start-angle="182" sweep-angle="26" />
+      <arc id="arc-battery-2" class="arc arc-blue" start-angle="212" sweep-angle="26" />
+      <arc id="arc-battery-3" class="arc arc-blue" start-angle="242" sweep-angle="26" />
+      <arc id="arc-battery-4" class="arc arc-blue" start-angle="272" sweep-angle="26" />
+      <arc id="arc-battery-5" class="arc arc-blue" start-angle="302" sweep-angle="26" />
+      <arc id="arc-battery-6" class="arc arc-blue" start-angle="332" sweep-angle="26" />
+      
+      <text id="battery-text" x="5" y="100%-5" />
+    </svg>
+  </svg>
+
+  <!-- HR -->
+  <svg id="hr" x="100%-30" y="100%-25">   <!-- `x` offset is 30 (margin: 5, image: 24, padding: 1) -->
+      <text id="hr-text" x="0" y="19">N/A</text>
+
+      <image x="1" id="hr-icon-diastole" class="icon icon-hr" href="img/stat_hr_open_24px.png" />
+      <image x="$-24" id="hr-icon-systole" class="icon icon-hr" href="img/stat_hr_solid_24px.png" />
+    </svg>
+
+  <!-- CLOCK -->
+  <svg id="clock" width="50%" height="50%" x="25%" y="25%">
+      <text id="date" class="clock-date text-left debug" x="-5" y="50%-60" />
+      
+      <text id="hm" class="clock-hm debug" x="50%" y="50%" />
+      <text id="ss" class="clock-s text-right debug" x="100%+15" y="50%+32" />
+
+      <image id="bt-icon" class="icon" href="img/bt_icon_24px.png" x="-5" y="50%+10"/>
+  </svg>
+  
+  <!-- STATS -->
+  <svg id="calories-stats" class="stats" x="10" y="50"> 
+    <svg>
+      <!-- Macronutrients -->
+      <svg id="calories-arcs" width="50%" height="50%" x="0" y="25%">
+        <svg>   <!-- Arcs must be in reverse order! -->
+          <arc id="calories-arcs-proteins" class="arc arc-green" start-angle="0" sweep-angle="360" />
+          <arc id="calories-arcs-fats" class="arc arc-red" start-angle="0" sweep-angle="0" />
+          <arc id="calories-arcs-carbs" class="arc arc-blue" start-angle="0" sweep-angle="0" />
+        </svg>
+        <svg x="$+10" y="25%+5">
+          <text id="calories-stats-carbs" class="text-left" x="0" y="0"/>
+          <text id="calories-stats-fats" class="text-left" x="0" y="$"/>
+          <text id="calories-stats-proteins" class="text-left" x="0" y="$"/>
+          <!-- <text id="calories-stats-water" class="text-left" x="0" y="$"/> -->
+        </svg>
+        
+      </svg>  
+      <!-- Carbs in/out -->
+      <text id="calories-stats-in" class="text-left" x="0" y="0" />
+      <text id="calories-stats-out" class="text-left" x="0" y="$" />
+
+      <!-- Status -->
+      <text id="calories-status" class="text-left debug-msg" x="0" y="100%-10" />
+    </svg>
+  </svg>
+
+  <!-- CLICKERS -->  
+  <circle id="clicker-center" class="clicker" cx="50%" cy="50%"/>
+  <circle id="clicker-top-right" class="clicker" cx="100%" cy="0" />
+  <circle id="clicker-bottom-right" class="clicker" cx="100%" cy="100%" />
+  <circle id="clicker-bottom-left" class="clicker" cx="0" cy="100%" />
+  <circle id="clicker-top-left" class="clicker" cx="0" cy="0" />
+
+
+</svg>
