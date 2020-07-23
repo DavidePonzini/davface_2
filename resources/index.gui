@@ -49,12 +49,30 @@
 
   <!-- CLOCK -->
   <svg id="clock" width="50%" height="50%" x="25%" y="25%">
-      <text id="date" class="clock-date text-left debug" x="-5" y="50%-60" />
-      
-      <text id="hm" class="clock-hm debug" x="50%" y="50%" />
-      <text id="ss" class="clock-s text-right debug" x="100%+15" y="50%+32" />
+    <text id="date" class="clock-date text-left debug" x="-5" y="50%-60" />
+    
+    <text id="hm" class="clock-hm debug" x="50%" y="50%" />
+    <text id="ss" class="clock-s text-right debug" x="100%+15" y="50%+32" />
 
-      <image id="bt-icon" class="icon" href="img/bt_icon_24px.png" x="-5" y="50%+10"/>
+    <image id="bt-icon" class="icon" href="img/bt_icon_24px.png" x="-5" y="50%+10"/>
+
+    <svg class="arc-container" x="-5" y="50%+39" width="50" height="50" id="calories" >   <!-- `y` offset is 39 (margin: 5, image: 24, prev: 10) -->
+      <arc class="arc-small arc-bg" start-angle="4"   sweep-angle="52" />
+      <arc class="arc-small arc-bg" start-angle="64"  sweep-angle="52" />
+      <arc class="arc-small arc-bg" start-angle="124" sweep-angle="52" />
+      <arc class="arc-small arc-bg" start-angle="184" sweep-angle="52" />
+      <arc class="arc-small arc-bg" start-angle="244" sweep-angle="52" />
+      <arc class="arc-small arc-bg" start-angle="304" sweep-angle="52" />
+
+      <arc id="arc-proteins-1" class="arc-small arc-green" start-angle="4"   sweep-angle="0" />
+      <arc id="arc-proteins-2" class="arc-small arc-green" start-angle="64"  sweep-angle="0" />
+      <arc id="arc-proteins-3" class="arc-small arc-green" start-angle="124" sweep-angle="0" />
+      <arc id="arc-proteins-4" class="arc-small arc-green" start-angle="184" sweep-angle="0" />
+      <arc id="arc-proteins-5" class="arc-small arc-green" start-angle="244" sweep-angle="0" />
+      <arc id="arc-proteins-6" class="arc-small arc-green" start-angle="304" sweep-angle="0" />
+
+      <image id="arc-proteins-icon" class="icon" href="img/muscle_icon_24px.png" x="50%-12" y="50%-12"/>
+    </svg>
   </svg>
   
   <!-- STATS -->
@@ -63,7 +81,7 @@
       <!-- Macronutrients -->
       <svg id="calories-arcs" width="50%" height="50%" x="0" y="25%">
         <svg>   <!-- Arcs must be in reverse order! -->
-          <arc id="calories-arcs-proteins" class="arc arc-green" start-angle="0" sweep-angle="360" />
+          <arc id="calories-arcs-proteins" class="arc arc-green" start-angle="0" sweep-angle="0" />
           <arc id="calories-arcs-fats" class="arc arc-red" start-angle="0" sweep-angle="0" />
           <arc id="calories-arcs-carbs" class="arc arc-blue" start-angle="0" sweep-angle="0" />
         </svg>

@@ -56,3 +56,7 @@ export function drawArc2(arc, cap, val, maxVal, degrees=90) {
 export function setVisibility(visibility, elem) {
   elem.style.display = (visibility) ? "inline" : "none";
 }
+
+export function setColor(elem, color) {
+  elem.style.fill = color;
+}

@@ -22,6 +22,12 @@ function mySettings(props) {
           type="number"
           settingsKey="calories-deficit"
         />
+        <TextInput
+          label="Proteins goal"
+          placeholder="60"
+          type="number"
+          settingsKey="proteins-goal"
+        />
       </Section>
     </Page>
   );

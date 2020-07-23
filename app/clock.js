@@ -60,15 +60,15 @@ export function changeFace(face) {
 }
 
 export function connection_on_open() {
-  svg.connection_icon.style.fill = '#2490dd';
+  draw.setColor(svg.connection_icon, '#2490dd');
 }
 
 export function connection_on_close() {
-  svg.connection_icon.style.fill = '#404040';
+  draw.setColor(svg.connection_icon, '#404040');
 }
 
 export function connection_on_error(err) {
-  svg.connection_icon.style.fill = '#f83c40';
+  draw.setColor(svg.connection_icon, '#f83c40');
 }
 
 export function connection_on_message(evt) {}

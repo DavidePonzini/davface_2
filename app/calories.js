@@ -1,4 +1,3 @@
-import { battery } from "power";
 import * as draw from "../common/drawing.js";
 import * as util from "../common/utils.js";
 import document from "document";
@@ -33,6 +32,17 @@ const svg = {
 			'fats': document.getElementById("calories-arcs-fats"),
 			'proteins': document.getElementById("calories-arcs-proteins")
 		}
+	},
+	'proteins-goal': {
+		'arcs' : [
+			document.getElementById("arc-proteins-1"),
+			document.getElementById("arc-proteins-2"),
+			document.getElementById("arc-proteins-3"),
+			document.getElementById("arc-proteins-4"),
+			document.getElementById("arc-proteins-5"),
+			document.getElementById("arc-proteins-6"),
+		],
+		'icon': document.getElementById("arc-proteins-icon")
 	}
 };
 
@@ -91,13 +101,31 @@ export function tick(evt) {
 	
 	if(!stats_hidden)
 		tickStats(evt);
+	else
+		tickCounters(evt)
+}
+
+function tickCounters(evt) {
+	if (data === undefined || data.proteins_goal == null) {
+		draw.drawArcs(svg['proteins-goal']['arcs'], 0, 1, 52);
+		draw.setColor(svg['proteins-goal']['icon'], '#404040');
+		return;
+	}
+
+	draw.drawArcs(svg['proteins-goal']['arcs'], data.proteins, data.proteins_goal, 52);
+
+	if (data.proteins >= data.proteins_goal)
+		draw.setColor(svg['proteins-goal']['icon'], '#00a629');
+	else
+		draw.setColor(svg['proteins-goal']['icon'], '#404040');
+		
 }
 
 function tickStats(evt) {
 	if (data === undefined || data.calories == 0) {
-		draw.drawArcManual(svg.stats.arcs.carbs, 0, 0);
-		draw.drawArcManual(svg.stats.arcs.fats, 0, 0);
-		draw.drawArcManual(svg.stats.arcs.proteins, 0, 0);
+		draw.drawArcManual(svg.stats.arcs.carbs, 0);
+		draw.drawArcManual(svg.stats.arcs.fats, 0);
+		draw.drawArcManual(svg.stats.arcs.proteins, 0);
 
 	svg.stats.in.text =       'In:  0 cals';
 	svg.stats.out.text =      `Out: ${today.local.calories - deficit()} cals`;
@@ -124,7 +152,7 @@ function tickStats(evt) {
 	
 	draw.drawArcManual(svg.stats.arcs.carbs, degrees_carbs);
 	draw.drawArcManual(svg.stats.arcs.fats, degrees_fats + degrees_carbs);
-	//draw.drawArcManual(svg.stats.arcs.proteins, 360); // directly into `.gui`
+	draw.drawArcManual(svg.stats.arcs.proteins, 360);
 
 	svg.stats.in.text =       `In:  ${data.calories} cals`;
 	svg.stats.out.text =      `Out: ${today.local.calories - deficit()} cals`;

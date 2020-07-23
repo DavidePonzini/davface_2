@@ -26,10 +26,14 @@ async function fetchFoodData()  {
 
 	let cal_deficit = JSON.parse(settingsStorage.getItem("calories-deficit"));
 	cal_deficit = cal_deficit.name;
+
+	let proteins_goal = JSON.parse(settingsStorage.getItem("proteins-goal"));
+	proteins_goal = proteins_goal.name;
 	
 	messaging.peerSocket.send({
 		type: 'food',
 		deficit: +cal_deficit,
+		proteins_goal: +proteins_goal,
 		calories: +data.summary.calories,
 		carbs: +data.summary.carbs,
 		fats: +data.summary.fat,
