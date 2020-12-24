@@ -60,3 +60,8 @@ export function setVisibility(visibility, elem) {
 export function setColor(elem, color) {
   elem.style.fill = color;
 }
+
+export function setColorArray(elems, color) {
+  for(let i in elems)
+    setColor(elems[i], color);
+}

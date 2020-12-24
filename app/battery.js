@@ -30,8 +30,26 @@ export function tick(evt) {
   draw.drawArcs(svg.arcs, battery_lvl, 100, 26);
   
   svg.text.text = battery.charging ? '' : `${battery_lvl}%`;
+
+  draw.setColorArray(svg.arcs, getBarColor());
 }
 
+function getBarColor() {
+  if (!battery.charging) {
+    if (battery.chargeLevel < 20)
+      return '#f83c40';   // red
+    
+    if (battery.chargeLevel < 20)
+      return '#ffd733';   // yellow
+
+    return '#2490dd';     // blue
+  }
+
+  if(battery_lvl < 100)
+      return '#00a629';   // green
+
+  return '#ffffff';       // white
+}
 
 export function changeFace(face) {
   switch(face) {
